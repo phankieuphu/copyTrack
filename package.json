@@ -1,10 +1,23 @@
 {
-  "name": "copyTrack",
+  "name": "copy-track",
   "displayName": "copyTrack",
-  "description": "Copplied list when use vscode",
+  "author": {
+    "name": "phu.phan",
+    "email": "phankieuphu@gmail.com"
+  },
+  "license": "MIT",
+  "description": "Copied list for Visual Studio Code",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.95.0"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phankieuphu/copyTrack"
+  },
+  "bugs": {
+    "url": "https://github.com/phankieuphu/copyTrack/issues"
   },
   "categories": [
     "Other"
