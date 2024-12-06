@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-// import { CopiedItemsViewProvider } from "./view";
+import { CopiedItemsViewProvider } from "./view";
 let copiedItems: string[] = [];
 
 export function activate(context: vscode.ExtensionContext) {
@@ -23,39 +23,41 @@ export function deactivate() {}
 
 // Webview view provider class
 
-class CopiedItemsViewProvider implements vscode.WebviewViewProvider {
-  private _view?: vscode.WebviewView;
+// class CopiedItemsViewProvider implements vscode.WebviewViewProvider {
+//   private _view?: vscode.WebviewView;
 
-  constructor(private readonly _extensionUri: vscode.Uri) {}
+//   constructor(private readonly _extensionUri: vscode.Uri) {}
 
-  public resolveWebviewView(
-    webviewView: vscode.WebviewView,
-    _context: vscode.WebviewViewResolveContext,
-    _token: vscode.CancellationToken
-  ) {
-    this._view = webviewView;
+//   public resolveWebviewView(
+//     webviewView: vscode.WebviewView,
+//     _context: vscode.WebviewViewResolveContext,
+//     _token: vscode.CancellationToken
+//   ) {
+//     this._view = webviewView;
 
-    // Set initial HTML content
-    this.updateView([]);
-  }
+//     // Set up the Webview HTML content
+//     webviewView.webview.options = {
+//       enableScripts: true,
+//     };
+//     webviewView.webview.html = this.getHtmlForWebview(webviewView.webview);
 
-  public updateView(copiedItems: string[]) {
-    if (this._view) {
-      const listHtml = copiedItems.map((item) => `<li>${item}</li>`).join("");
-      this._view.webview.html = `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Copied Items</title>
-                </head>
-                <body>
-                    <h1>Copied Items</h1>
-                    <ul>${listHtml}</ul>
-                </body>
-                </html>
-            `;
-    }
-  }
-}
+//     // Send the initial list of copied items
+//     this.updateView([]);
+//   }
+
+//   public updateView(copiedItems: string[]) {
+//     if (this._view) {
+//       this._view.webview.postMessage({ items: copiedItems });
+//     }
+//   }
+
+//   private getHtmlForWebview(webview: vscode.Webview): string {
+//     const htmlFilePath = vscode.Uri.joinPath(
+//       this._extensionUri,
+//       "webview",
+//       "copiedItems.html"
+//     );
+
+//     return webview.asWebviewUri(htmlFilePath).toString();
+//   }
+// }
