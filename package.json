@@ -22,6 +22,12 @@
   "categories": [
     "Other"
   ],
+  "files": [
+    "out",
+    "webview",
+    "package.json",
+    "README.md"
+  ],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
